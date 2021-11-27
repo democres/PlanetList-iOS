@@ -1,5 +1,5 @@
 //
-//  ArticleCell.swift
+//  PlanetCell.swift
 //  MLSearchApp
 //
 //  Created by David Figueroa on 12/04/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Kingfisher
 
-struct ArticleCell: View {
+struct PlanetCell: View {
     
     var planet: Planet
 
@@ -23,12 +23,11 @@ struct ArticleCell: View {
 //            }
             
             VStack(alignment: .leading) {
-                Text(planet.title).font(.custom("Harabara Mais", size: 15))
-                Text(planet.population).font(.custom("Harabara Mais Bold", size: 16))
-//                Text("Come and eat at \(article.title)").font(.custom("Harabara Mais Light", size: 12))
+                Text(planet.name).font(.custom("Harabara Mais", size: 15))
+                Text("Population: \(planet.population)").font(.custom("Harabara Mais Bold", size: 16))                    
             }.multilineTextAlignment(.leading)
             .padding(.horizontal, 10)
             
-        }.frame(height: 120)
+        }.frame(height: 50)
     }
 }

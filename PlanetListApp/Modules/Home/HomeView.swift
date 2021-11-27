@@ -26,62 +26,26 @@ struct HomeView: View {
                 .padding(.top, 30)
                 .padding(.bottom, 10)
             
-            Text("Mercado Libre Search")
+            Text("Planet List")
                 .font(.custom("Harabara Mais Bold", size: 25))
-                .foregroundColor(MLSearchAppColors.darkBlue)
+                .foregroundColor(PlanetsAppColors.darkBlue)
                 .padding(.bottom, 15)
             
-            TextField("Buscar productos, marcas y más...", text: $presenter.searchText, onCommit: {
-                presenter.getSearchResults(searchQuery: presenter.searchText)
-            })
-            .padding(7)
-            .padding(.horizontal, 25)
-            .font(.custom("Harabara Mais", size: 18))
-            .background(Color(.systemGray6))
-            .cornerRadius(8)
-            .overlay(
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.gray)
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 8)
-                    
-                    if isEditing {
-                        Button(action: { [weak presenter] in
-                            self.isEditing = false
-                            presenter?.searchText.removeAll()
-                            presenter?.articles.removeAll()
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        }) {
-                            Image(systemName: "multiply.circle.fill")
-                                .foregroundColor(.gray)
-                                .padding(.trailing, 8)
-                        }
-                    }
-                }
-            )
-            .padding(.horizontal, 20)
-            .padding(.bottom, 20)
-            .onTapGesture {
-                self.isEditing = true
-            }
-            
             if presenter.isLoading {
-                ProgressView("Buscando..")
+                ProgressView("Loading...")
             }
             
             if presenter.showMessage {
                 MessageView(showMessage: $presenter.showMessage, message: presenter.errorMessage, isError: true)
             }
             
-            List(presenter.articles) { article in
-                
+            List(presenter.planets) { planet in
                 Button (action: {
                     self.viewController?.present(style: .fullScreen, transitionStyle: .flipHorizontal) {
-                            ProductDetailViewControllerUI(article: article)
+                            ProductDetailViewControllerUI(planet: planet)
                     }
                 }) {
-                    ArticleCell(article: article)
+                    PlanetCell(planet: planet)
                 }
             }
             

@@ -28,45 +28,31 @@ class HomePresenter: ObservableObject {
     private let router = HomeRouter()
     private var cancellables = Set<AnyCancellable>()
     
-    public var articles = [Article]()
+    public var planets = [Planet]()
     
     // MARK: - Init
     
     init(interactor: HomeInteractor) {
-
         self.interactor = interactor
+        getPlanets()
     }
     
-    func getSearchResults(searchQuery: String){
+    func getPlanets(){
         
         self.isLoading = true
         
-        interactor.performSearch(searchQuery: searchQuery)
+        interactor.getPlanets()
             .sink(receiveCompletion: { [weak self] errorResponse in
                 self?.isLoading = false
                 switch errorResponse {
                 case .failure(let error):
-                    switch error {
-                    case .error(let statusCode, let dataResponse, let error):
-                        if statusCode == 401{
-                            self?.errorMessage = "Auth Error"
-                            return
-                        } else if statusCode == 501 {
-                            self?.errorMessage = "Server Error"
-                            return
-                        }
-                        if let data = dataResponse {
-                            self?.errorMessage = data.parseErrorData()
-                        } else {
-                            self?.errorMessage = error.localizedDescription
-                        }
-                    }
+                    self?.errorMessage = error.localizedDescription
                 case .finished:
                     break
                 }
-            }, receiveValue: { [weak self] articlesResponse in
+            }, receiveValue: { [weak self] planetsResponse in
                 self?.isLoading = false
-                self?.articles = articlesResponse.results
+                self?.planets = planetsResponse
             })
             .store(in: &cancellables)
     }

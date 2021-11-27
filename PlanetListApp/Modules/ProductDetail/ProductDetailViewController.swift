@@ -9,15 +9,15 @@ import SwiftUI
 
 struct ProductDetailViewControllerUI: UIViewControllerRepresentable {
     
-    var article: Article?
+    var planet: Planet?
     
-    init(article: Article?) {
-        self.article = article
+    init(planet: Planet?) {
+        self.planet = planet
     }
     
     func makeUIViewController(context: Context) -> ProductDetailViewController {
         let viewController = ProductDetailViewController()
-        viewController.article = self.article
+        viewController.planet = self.planet
         return viewController
     }
     
@@ -36,7 +36,7 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet private weak var descriptioLabel: UILabel?
     @IBOutlet private weak var descriptionTextView: UITextView?
     
-    var article: Article?
+    var planet: Planet?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +44,7 @@ class ProductDetailViewController: UIViewController {
         setupView()
     }
     
-    private func setupView() {
-        articleImage?.kf.setImage(with: URL(string: article?.thumbnail ?? ""))
-        priceLabel?.text = "$\(article?.price ?? 0)"
-    }
+    private func setupView() {}
     
     @IBAction func tapBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

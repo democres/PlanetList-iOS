@@ -17,7 +17,7 @@ struct MessageView: View {
     var body: some View {
 
         Capsule(style: .continuous)
-            .fill(isError == true ? Color.red : MLSearchAppColors.darkBlue)
+            .fill(isError == true ? Color.red : PlanetsAppColors.darkBlue)
             .frame(height: 45.0)
             .padding(.horizontal, 20.0)
             .transition(.opacity)

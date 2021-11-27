@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A03D68C32623C1DB0074810A"
-               BuildableName = "MLSearchApp.app"
+               BuildableName = "PlanetListApp.app"
                BlueprintName = "PlanetListApp"
                ReferencedContainer = "container:PlanetListApp.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A03D68D42623C1DD0074810A"
-               BuildableName = "MLSearchAppTests.xctest"
+               BuildableName = "PlanetListAppTests.xctest"
                BlueprintName = "PlanetListAppTests"
                ReferencedContainer = "container:PlanetListApp.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A03D68DF2623C1DD0074810A"
-               BuildableName = "MLSearchAppUITests.xctest"
+               BuildableName = "PlanetListAppUITests.xctest"
                BlueprintName = "PlanetListAppUITests"
                ReferencedContainer = "container:PlanetListApp.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A03D68C32623C1DB0074810A"
-            BuildableName = "MLSearchApp.app"
+            BuildableName = "PlanetListApp.app"
             BlueprintName = "PlanetListApp"
             ReferencedContainer = "container:PlanetListApp.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A03D68C32623C1DB0074810A"
-            BuildableName = "MLSearchApp.app"
+            BuildableName = "PlanetListApp.app"
             BlueprintName = "PlanetListApp"
             ReferencedContainer = "container:PlanetListApp.xcodeproj">
          </BuildableReference>

@@ -7,6 +7,4 @@
 
 import Foundation
 
-struct HomeRouter {
-    
-}
+struct HomeRouter {}
